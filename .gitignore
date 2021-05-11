@@ -2,6 +2,7 @@ node_modules
 client/dist/ignoredBundle.js
 client/dist/ignoredBundle.js.LICENSE.txt
 APIconfig.js
+helpers/config.js
 coverage
 /client/dist/0.ignoredBundle.js
 /client/dist/0.ignoredBundle.js.LICENSE.txt

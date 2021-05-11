@@ -4,7 +4,7 @@ const axios = require('axios');
 export const fetchQuestions = createAsyncThunk(
   'qa/questions',
   async (productId, thunkAPI) => {
-    const response = await axios.get(`/api/?endpoint=qa/questions?product_id=${productId}&count=100`);
+    const response = await axios.get(`http://localhost:3000/qa/questions?product_id=${productId}&count=100`);
     return response.data;
   }
 );
@@ -48,7 +48,7 @@ export const qaSlice = createSlice({
     [fetchQuestions.fulfilled]: (state, action) => {
       state.data = action.payload.results;
       state.answers = state.data.map(question => {
-        return Object.values(question.answers);
+        return (question.answers);
       });
     },
     [incrementHelpfulQuestionCount.fulfilled]: (state, action) => {

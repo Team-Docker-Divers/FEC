@@ -67,9 +67,9 @@ export default function AddQModal () {
   const onSubmitClick = () => {
     if (question.length && nickname.length && email.length) {
       axios.post('http://localhost:3000/qa/questions', {
-        body: question,
-        name: nickname,
-        email: email,
+        question_body: question,
+        asker_name: nickname,
+        asker_email: email,
         product_id: productId
       })
         .then(() => dispatch(fetchQuestions(productId)))

@@ -32,13 +32,7 @@ const Question = props => {
   const [reported, setReported] = useState(false);
 
   const onReportClick = (questionId) => {
-    axios({
-      METHOD: 'PUT',
-      url: `http://localhost:3000/qa/questions/${questionId}/report`,
-      headers: {
-        Authorization: config.API_KEY
-      }
-    })
+    axios.put(`http://localhost:3000/qa/questions/${questionId}/report`)
       .then(setReported(true));
   };
 

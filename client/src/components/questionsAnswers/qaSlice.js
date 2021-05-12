@@ -12,7 +12,7 @@ export const fetchQuestions = createAsyncThunk(
 export const incrementHelpfulQuestionCount = createAsyncThunk(
   'qa/questions/helpfulQuestion',
   async (questionId, thunkAPI) => {
-    const response = await axios.put(`/api/?endpoint=qa/questions/${questionId}/helpful`);
+    const response = await axios.put(`http://localhost:3000/qa/questions/${questionId}/helpful`);
     return response.data;
   }
 );
@@ -20,7 +20,7 @@ export const incrementHelpfulQuestionCount = createAsyncThunk(
 export const incrementHelpfulAnswerCount = createAsyncThunk(
   'qa/Answers/helpfulAnswer',
   async (answerId, thunkAPI) => {
-    const response = await axios.put(`/api/?endpoint=qa/answers/${answerId}/helpful`);
+    const response = await axios.put(`http://localhost:3000/qa/answers/${answerId}/helpful`);
     return response.data;
   }
 );
@@ -44,9 +44,10 @@ export const qaSlice = createSlice({
       state.Qcount = state.Qcount + 2;
     }
   },
+
   extraReducers: {
     [fetchQuestions.fulfilled]: (state, action) => {
-      state.data = action.payload.results;
+      state.data = action.payload;
       state.answers = state.data.map(question => {
         return (question.answers);
       });

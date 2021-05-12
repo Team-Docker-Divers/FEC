@@ -9,6 +9,7 @@ import { countShowMoreAnswersClick } from '../appSlice.js';
 const Answers = (props) => {
   const [answers] = useState(props.answers[props.index]);
   let sortedAnswers = answers.slice().sort((a, b) => {
+    console.log('these are the answers', answers);
     return b.helpfulness - a.helpfulness;
   });
 
@@ -28,7 +29,7 @@ const Answers = (props) => {
             if (index < 2) {
               return (
                 <Answer
-                  key={answer.id}
+                  key={answer.answer_id}
                   answer={answer}
                   index={index}/>
               );
@@ -63,7 +64,7 @@ const Answers = (props) => {
           overflowX: 'hidden',
           overflowY: 'auto' }}>
           {sortedAnswers.map((answer, index) => {
-            return <Answer key={answer.id} answer={answer} index={index}/>;
+            return <Answer key={answer.answer_id} answer={answer} index={index}/>;
           })}
         </Grid>
         <div style={{ textAlign: 'center' }}>

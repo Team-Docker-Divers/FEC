@@ -21,7 +21,7 @@ export const fetchReviewMetadata = createAsyncThunk(
 export const fetchReviewsNewest = createAsyncThunk(
   'reviews/getReviewsNewest',
   async (productId, thunkAPI) => {
-    const response = await axios.get(`/api/?endpoint=reviews/?product_id=${productId}&count=100&sort=newest`);
+    const response = await axios.get(`http://localhost:3000/api/reviews?product_id=${productId}&count=100&sort=newest`);
     return response.data.results;
   }
 );
@@ -29,7 +29,7 @@ export const fetchReviewsNewest = createAsyncThunk(
 export const fetchReviewsHelpful = createAsyncThunk(
   'reviews/getReviewsHelpful',
   async (productId, thunkAPI) => {
-    const response = await axios.get(`/api/?endpoint=reviews/?product_id=${productId}&count=100&sort=helpful`);
+    const response = await axios.get(`http://localhost:3000/api/reviews?product_id=${productId}&count=100&sort=helpful`);
     return response.data.results;
   }
 );
@@ -37,7 +37,7 @@ export const fetchReviewsHelpful = createAsyncThunk(
 export const fetchReviewsRelevant = createAsyncThunk(
   'reviews/getReviewsRelevant',
   async (productId, thunkAPI) => {
-    const response = await axios.get(`/api/?endpoint=reviews/?product_id=${productId}&count=100&sort=relevant`);
+    const response = await axios.get(`http://localhost:3000/api/reviews?product_id=${productId}&count=100&sort=relevant`);
     return response.data.results;
   }
 );

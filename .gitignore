@@ -1,7 +1,7 @@
 node_modules
 client/dist/ignoredBundle.js
 client/dist/ignoredBundle.js.LICENSE.txt
-APIconfig.js
+/Users/jennagroth/immersive/Reviews/FECfolder/FEC/APIconfig.js
 coverage
 /client/dist/0.ignoredBundle.js
 /client/dist/0.ignoredBundle.js.LICENSE.txt

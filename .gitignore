@@ -2,6 +2,7 @@ node_modules
 client/dist/ignoredBundle.js
 client/dist/ignoredBundle.js.LICENSE.txt
 /Users/jennagroth/immersive/Reviews/FECfolder/FEC/APIconfig.js
+/Users/julianbowman/Desktop/JavaScript/sdc-fec/FEC/APIconfig.js
 coverage
 /client/dist/0.ignoredBundle.js
 /client/dist/0.ignoredBundle.js.LICENSE.txt

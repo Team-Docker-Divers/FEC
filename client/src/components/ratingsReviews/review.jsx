@@ -172,7 +172,7 @@ const Review = ({ review }) => {
             <span/>}
 
           {/*If the review has a response */}
-          {review.response ?
+          {review.response && review.response !== 'null' ?
             <Grid item xs={12} container>
               <div style= {{ backgroundColor: '#D3D3D3' }}>
                 <div><b>Response from seller:</b></div>

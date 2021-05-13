@@ -48,7 +48,7 @@ const RealtedProductCard = ({ productInfo }) => {
   const handleClose = () => {
     openModal(false);
   };
-
+  console.log(productInfo);
   return (
     <div >
       <GridListTile style={{

@@ -1,10 +1,11 @@
+/* eslint-disable max-len */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const axios = require('axios');
 
 export const fetchProductInfo = createAsyncThunk(
   'products/getProductInfo',
   async (productId, thunkAPI) => {
-    const response = await axios.get(`/api/?endpoint=products/${productId}`);
+    const response = await axios.get(`http://ec2-54-241-138-72.us-west-1.compute.amazonaws.com:5000/products/${productId}`);
     return response.data;
   }
 );

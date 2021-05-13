@@ -2,11 +2,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const axios = require('axios');
 
 const generateRelatedItemsPromise = function (productId) {
-  return axios.get(`/api/?endpoint=products/${productId}`);
+  return axios.get(`http://ec2-54-241-138-72.us-west-1.compute.amazonaws.com:5000/products/${productId}`);
 };
 
 const generateRelatedStylePromise = function (productId) {
-  return axios.get(`/api/?endpoint=products/${productId}/styles`);
+  return axios.get(`http://ec2-54-241-138-72.us-west-1.compute.amazonaws.com:5000/products/${productId}/styles`);
 };
 
 const generateRelatedReviewMetaDataPromise = function (productId) {
@@ -31,9 +31,9 @@ export const fetchRelated = createAsyncThunk(
   'products/getRelated',
   async (productId, thunkAPI) => {
     let itemInfo;
-    await axios.get(`/api/?endpoint=products/${productId}/related`)
+    await axios.get(`http://ec2-54-241-138-72.us-west-1.compute.amazonaws.com:5000/products/${productId}/related`)
       .then(function (response) {
-        return response.data;
+        return response.data[0].related;
       })
       .then((arrayOfRelatedIds) => {
         let promiseArray = [];
@@ -55,7 +55,8 @@ export const fetchRelated = createAsyncThunk(
       .then((itemInfoArray) => {
         let promiseArray = [];
         itemInfoArray.map((item, index) => {
-          promiseArray[index] = (generateRelatedStylePromise(item.id));
+          console.log('item: ', itemInfo[index][0]);
+          promiseArray[index] = (generateRelatedStylePromise(item[0].id));
         });
         return promiseArray;
       })
@@ -64,10 +65,10 @@ export const fetchRelated = createAsyncThunk(
       })
       .then((resolvedStylePromises) => {
         resolvedStylePromises.map((item, index) => {
-          if (item.data.results[0].photos[0].thumbnail_url) {
-            itemInfo[index].photo = item.data.results[0].photos[0].url;
+          if (item.data[0].results[0].photos[0].thumbnail_url) {
+            itemInfo[index][0].photo = item.data[0].results[0].photos[0].url;
           } else {
-            itemInfo[index].photo = "/assets/imgPlaceholder.jpeg";
+            itemInfo[index][0].photo = "/assets/imgPlaceholder.jpeg";
           }
         });
         return (itemInfo);
@@ -75,7 +76,8 @@ export const fetchRelated = createAsyncThunk(
       .then((itemInfoArray) => {
         let promiseArray = [];
         itemInfoArray.map((item, index) => {
-          promiseArray[index] = (generateRelatedReviewMetaDataPromise(item.id));
+          console.log(item);
+          promiseArray[index] = (generateRelatedReviewMetaDataPromise(item[0].id));
         });
         return promiseArray;
       })
@@ -89,7 +91,7 @@ export const fetchRelated = createAsyncThunk(
         return (itemInfo);
       })
       .catch(function (error) {
-        // console.error(error);
+        console.error(error);
       });
     return itemInfo;
   }

@@ -1,10 +1,12 @@
+/* eslint-disable max-len */
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const axios = require('axios');
 
 export const fetchStyleInfo = createAsyncThunk(
   'products/getStyleInfo',
   async (productId, thunkAPI) => {
-    const response = await axios.get(`/api/?endpoint=products/${productId}/styles`);
+    const response = await axios.get(`http://ec2-54-241-138-72.us-west-1.compute.amazonaws.com:5000/products/${productId}/styles`);
+    console.log(response.data);
     return response.data;
   }
 );
@@ -32,8 +34,8 @@ export const overviewSlice = createSlice({
   },
   extraReducers: {
     [fetchStyleInfo.fulfilled]: (state, action) => {
-      state.styles = action.payload.results;
-      state.currentStyle = action.payload.results[0];
+      state.styles = action.payload[0].results;
+      state.currentStyle = action.payload[0].results[0];
     }
   }
 });

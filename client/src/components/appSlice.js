@@ -6,7 +6,7 @@ export const fetchProductInfo = createAsyncThunk(
   'products/getProductInfo',
   async (productId, thunkAPI) => {
     const response = await axios.get(`http://ec2-54-241-138-72.us-west-1.compute.amazonaws.com:5000/products/${productId}`);
-    return response.data;
+    return response.data[0];
   }
 );
 
@@ -78,7 +78,7 @@ export const appSlice = createSlice({
   name: 'app',
   initialState: {
     //Initial state here
-    productId: 18078,
+    productId: 18079,
     productInfo: {},
     reviews: [],
     reviewMetadata: {},

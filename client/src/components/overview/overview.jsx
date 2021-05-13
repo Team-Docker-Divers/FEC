@@ -33,7 +33,6 @@ const useStyles = makeStyles(() => ({
 const Overview = (props) => {
   const classes = useStyles();
   const productInfo = useSelector((state) => state.app.productInfo);
-
   return (
     <div data-testid="overview" style={{ padding: 20 }}>
       <Grid container spacing={2}>

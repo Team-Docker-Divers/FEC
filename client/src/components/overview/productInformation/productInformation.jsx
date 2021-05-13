@@ -21,6 +21,7 @@ const ProductInformation = (props) => {
   const rating = useSelector((state) => state.app.rating);
   const numOfReviews = useSelector((state) => state.app.reviews.length);
 
+  console.log(currentStyle);
   useEffect(() => {
     dispatch(fetchReviewMetadata(productId));
     dispatch(fetchReviewsRelevant(productId));
@@ -67,7 +68,7 @@ const ProductInformation = (props) => {
           </span>
         </Grid>
         <Grid item data-testid="price">
-          {(currentStyle) && currentStyle.sale_price ?
+          {(currentStyle) && !currentStyle.sale_price.includes('null') ?
             <div>
               <span style ={{ color: 'red' }}>
                 <b>SALE </b> ${currentStyle.sale_price} &nbsp;

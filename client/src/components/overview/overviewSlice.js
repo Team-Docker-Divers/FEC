@@ -6,7 +6,6 @@ export const fetchStyleInfo = createAsyncThunk(
   'products/getStyleInfo',
   async (productId, thunkAPI) => {
     const response = await axios.get(`http://ec2-54-241-138-72.us-west-1.compute.amazonaws.com:5000/products/${productId}/styles`);
-    console.log(response.data);
     return response.data;
   }
 );

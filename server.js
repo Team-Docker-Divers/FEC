@@ -20,6 +20,10 @@ app.get('/api/*', (req, res) => {
   });
 });
 
+app.get('http://ec2-54-183-235-235.us-west-1.compute.amazonaws.com:3001/loaderio-056fe5b6e6290571e2d6ff13c1396d21.txt', (req, res) => {
+  res.send('loaderio-056fe5b6e6290571e2d6ff13c1396d21');
+});
+
 app.post('/api/*', (req, res) => {
   let endpoint = req.query.endpoint;
   // console.log('endpoint:', endpoint);

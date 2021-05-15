@@ -115,7 +115,7 @@ export default function AddReviewModal () {
         // imgURLs = images.map(img => img.data_url);
         // console.log(`Img urls: ${imgURLs}`);
 
-        axios.post(`http://localhost:3000/api/reviews`, {
+        axios.post(`http://ec2-18-220-58-182.us-east-2.compute.amazonaws.com/api/reviews`, {
           product_id: productId,
           rating: overallRating,
           summary: reviewSummary,

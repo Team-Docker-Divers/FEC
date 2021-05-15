@@ -4,7 +4,7 @@ const axios = require('axios');
 export const markHelpful = createAsyncThunk(
   'reviews/markHelpful',
   async (reviewId, thunkAPI) => {
-    await axios.put(`http://localhost:3000/api/reviews/${reviewId}/helpful`);
+    await axios.put(`http://ec2-18-220-58-182.us-east-2.compute.amazonaws.com/api/reviews/${reviewId}/helpful`);
     return reviewId;
   }
 );
@@ -12,7 +12,7 @@ export const markHelpful = createAsyncThunk(
 export const reportReview = createAsyncThunk(
   'reviews/report',
   async (reviewId, thunkAPI) => {
-    await axios.put(`http://localhost:3000/api/reviews/${reviewId}/report`);
+    await axios.put(`http://ec2-18-220-58-182.us-east-2.compute.amazonaws.com/api/reviews/${reviewId}/report`);
     return reviewId;
   }
 );

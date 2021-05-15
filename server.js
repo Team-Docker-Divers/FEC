@@ -20,6 +20,10 @@ app.get('/api/*', (req, res) => {
   });
 });
 
+app.get('/loaderio-056fe5b6e6290571e2d6ff13c1396d21.txt', (req, res) => {
+  res.send('loaderio-056fe5b6e6290571e2d6ff13c1396d21');
+});
+
 app.post('/api/*', (req, res) => {
   let endpoint = req.query.endpoint;
   // console.log('endpoint:', endpoint);

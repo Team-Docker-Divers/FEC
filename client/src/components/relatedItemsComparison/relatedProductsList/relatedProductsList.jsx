@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+
 const RelatedProductsList = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ const RelatedProductsList = () => {
         <GridList className={classes.gridList} >
           {relatedList.map((product) => {
             return (
-              < RelatedProductCard key={product.id} productInfo={product}/>
+              < RelatedProductCard key={product[0].id} productInfo={product[0]}/>
             );
           }
           )}

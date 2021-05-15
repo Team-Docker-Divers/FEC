@@ -47,7 +47,6 @@ const StyleSelector = (props) => {
     return (
       <div data-testid="style-selector"> <b>STYLE > </b> {currentStyle.name}
         <GridList cellHeight={100} cols={4}>
-
           {allStyles.map((style, index, allStyles) => {
             var url;
             if (style.photos[0] && style.photos[0].thumbnail_url) {

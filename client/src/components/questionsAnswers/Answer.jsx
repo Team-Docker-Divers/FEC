@@ -12,7 +12,7 @@ const Answer = (props) => {
   const [reported, setReported] = useState(false);
 
   const onReportClick = (answerId) => {
-    axios.put(`http://localhost:3000/qa/answers/${answerId}/report`)
+    axios.put(`http://ec2-54-242-156-208.compute-1.amazonaws.com:3000/qa/answers/${answerId}/report`)
       .then(setReported(true));
   };
 

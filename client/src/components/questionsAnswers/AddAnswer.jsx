@@ -71,7 +71,7 @@ export default function AddAModal (props) {
   const onSubmitClick = (questionId) => {
     console.log();
     if (answer.length && nickname.length && email.length) {
-      axios.put(`http://localhost:3000/qa/questions/${questionId}/answers`, {
+      axios.put(`http://ec2-54-242-156-208.compute-1.amazonaws.com:3000/qa/questions/${questionId}/answers`, {
         answer_body: answer,
         answerer_name: nickname,
         photos: []

@@ -66,7 +66,7 @@ export default function AddQModal () {
 
   const onSubmitClick = () => {
     if (question.length && nickname.length && email.length) {
-      axios.post('http://localhost:3000/qa/questions', {
+      axios.post('http://ec2-54-242-156-208.compute-1.amazonaws.com:3000/qa/questions', {
         question_body: question,
         asker_name: nickname,
         asker_email: email,

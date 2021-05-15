@@ -25,10 +25,10 @@ const Answers = (props) => {
         <Grid
           style={{ marginLeft: 10 }}>
           {sortedAnswers.map((answer, index) => {
-            if (index < 2) {
+            if (index < 2 && answer.answer_reported < 1) {
               return (
                 <Answer
-                  key={answer.id}
+                  key={answer.answer_id}
                   answer={answer}
                   index={index}/>
               );
@@ -63,7 +63,9 @@ const Answers = (props) => {
           overflowX: 'hidden',
           overflowY: 'auto' }}>
           {sortedAnswers.map((answer, index) => {
-            return <Answer key={answer.id} answer={answer} index={index}/>;
+            if (answer.answer_reported < 1) {
+              return <Answer key={answer.answer_id} answer={answer} index={index}/>;
+            }
           })}
         </Grid>
         <div style={{ textAlign: 'center' }}>

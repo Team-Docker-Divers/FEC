@@ -20,7 +20,7 @@ function getModalStyle () {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: '20%',
+    marginTop: 0,
     margin: '0 auto',
     width: 370,
     backgroundColor: theme.palette.background.paper,
@@ -66,10 +66,10 @@ export default function AddQModal () {
 
   const onSubmitClick = () => {
     if (question.length && nickname.length && email.length) {
-      axios.post('/api/?endpoint=qa/questions', {
-        body: question,
-        name: nickname,
-        email: email,
+      axios.post('http://ec2-54-242-156-208.compute-1.amazonaws.com:3000/qa/questions', {
+        question_body: question,
+        asker_name: nickname,
+        asker_email: email,
         product_id: productId
       })
         .then(() => dispatch(fetchQuestions(productId)))

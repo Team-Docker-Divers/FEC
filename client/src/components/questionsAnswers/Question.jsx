@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Answers from './Answers.jsx';
 import AddAModal from './AddAnswer.jsx';
+import config from '../../../../helpers/config.js';
 
 import { incrementHelpfulQuestionCount } from './qaSlice.js';
 
@@ -31,7 +32,7 @@ const Question = props => {
   const [reported, setReported] = useState(false);
 
   const onReportClick = (questionId) => {
-    axios.put(`/api/?endpoint=qa/questions/${questionId}/report`)
+    axios.put(`http://ec2-54-242-156-208.compute-1.amazonaws.com:3000/qa/questions/${questionId}/report`)
       .then(setReported(true));
   };
 

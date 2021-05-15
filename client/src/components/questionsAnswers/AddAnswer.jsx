@@ -22,7 +22,7 @@ function getModalStyle () {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: '20%',
+    marginTop: 0,
     margin: '0 auto',
     width: 370,
     backgroundColor: theme.palette.background.paper,
@@ -69,11 +69,11 @@ export default function AddAModal (props) {
   };
 
   const onSubmitClick = (questionId) => {
+    console.log();
     if (answer.length && nickname.length && email.length) {
-      axios.post(`/api/?endpoint=qa/questions/${questionId}/answers`, {
-        body: answer,
-        name: nickname,
-        email: email,
+      axios.put(`http://ec2-54-242-156-208.compute-1.amazonaws.com:3000/qa/questions/${questionId}/answers`, {
+        answer_body: answer,
+        answerer_name: nickname,
         photos: []
       })
         .then(() => dispatch(fetchQuestions(productId)))
